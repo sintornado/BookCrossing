@@ -1,0 +1,35 @@
+<!-- contact form -->
+
+<div class="share-block container jumbotron">
+  <form [formGroup]="contactForm">
+      <p class="h5 text-center mb-4">Please, share book</p>
+    
+      <div class="md-form">
+        <i class="fa fa-user prefix grey-text"></i>
+        <input type="text" id="contactFormName" formControlName="contactFormName" class="form-control" mdbInputDirective>
+        <label for="contactFormName">Title</label>
+      </div>
+    
+      <div class="md-form">
+        <i class="fa fa-user prefix grey-text"></i>
+        <input type="text" id="contactFormAuthor" formControlName="contactFormAuthor" class="form-control" mdbInputDirective>
+        <label for="contactFormAuthor">Author</label>
+      </div>  
+      
+    
+      <div class="md-form">
+        <i class="fa fa-tag prefix grey-text"></i>
+        <input type="number" id="contactFormYear" formControlName="contactFormYear" class="form-control" mdbInputDirective>
+        <label for="contactFormYear">Year</label>
+      </div>
+    
+      
+    
+      <div class="text-center">
+        <button class="btn btn-unique dark waves-light" (click)="onClickSave(contactForm)" mdbWavesEffect>Send
+          <i class="fa fa-paper-plane-o ml-1"></i>
+        </button>
+      </div>
+    </form>
+</div>
+  <!-- contact form -->

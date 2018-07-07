@@ -1,0 +1,41 @@
+<div class="jumbotron jumbotron-fluid rounded returned-block">
+    <div class="container ">
+      <div>
+          <h3 class="lead">Shared books:</h3>
+          <div class="table-responsive">
+              <table class="table">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Author</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     <tr *ngFor="let book of sharedBooks">
+                      <th scope="row">{{book.id}}</th>
+                      <td>{{book.title}}</td>
+                      <td>{{book.author}}</td>
+                      <td>{{book.year}}</td>
+                    </tr>
+                   <!-- <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Larry</td>
+                      <td>the Bird</td>
+                      <td>@twitter</td>
+                    </tr> -->
+                  </tbody>
+                </table>
+
+                <!-- <h2>You have not shared books....</h2> -->
+          </div>
+        </div>
+    </div>
+</div>

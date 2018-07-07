@@ -1,0 +1,41 @@
+<body>
+    <div class="grid">
+        <header>
+            <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark grey scrolling-navbar ie-nav" [containerInside]="false">
+                <logo>
+                    <a class="logo navbar-brand" href="#"><strong>BookCrossing</strong></a>
+                </logo>
+                <links>
+                    <ul class="navbar-nav mr-auto">
+                        
+                        <li class="nav-item waves-light" mdbWavesEffect routerLink="about-us">
+                            <a class="nav-link">About Us</a>
+                        </li>
+                        <li class="nav-item waves-light" mdbWavesEffect routerLink="contact">
+                            <a class="nav-link" routerLink="/contact">Contact</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav nav-flex-icons">
+                        <li class="nav-item waves-light" mdbWavesEffect routerLink="registration">
+                            <a class="nav-link">Registration</a>
+                        </li>
+                        <li class="nav-item waves-light" mdbWavesEffect routerLink="log-in">
+                            <a class="nav-link">Log In</a>
+                        </li>
+                    </ul>
+                </links>
+            </mdb-navbar>
+        </header>
+
+
+        <div class="main-block">
+            <router-outlet></router-outlet>
+        </div>
+
+    
+        <footer class="footer-copyright grey py-3 text-center text-white fixed-bottom">
+            © 2018 Copyright:
+            <a class="text-white" href="" routerLink="dashboard"> MDBootstrap.com </a>
+        </footer>
+    </div>
+</body>

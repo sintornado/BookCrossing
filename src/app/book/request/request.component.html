@@ -1,0 +1,53 @@
+<div class="tab">
+    <div class="card container">
+        <div class="card-body">
+    
+        <!-- Grid row -->
+        <div class="row">
+    
+            <!-- Grid column -->
+            <div class="col-md-12">
+    
+            <div class="md-form">
+                <input type="search" [(ngModel)]="searchText" id="search" class="form-control" mdbInputDirective >
+                <label for="search">Search for book...</label>
+            </div>
+    
+            </div>
+            <!-- Grid column -->
+    
+        </div>
+        <!-- Grid row -->
+    
+        <!--Table-->
+        <table class="table table-striped">
+    
+            <!--Table head-->
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <!--Table head-->
+    
+            <!--Table body-->
+            <tbody>
+            <tr *ngFor="let data of search()">
+                <th scope="row">{{data.id}}</th>
+                <td>{{data.firstName}}</td>
+                <td>{{data.lastName}}</td>
+                <td>{{data.username}}</td>
+                <td><button type="button" class="btn btn-outline-warning btn-rounded" size="lg" mdbWavesEffect>Request</button></td>
+            </tr>
+            </tbody>
+            <!--Table body-->
+        </table>
+        <!--Table-->
+    
+        </div>
+    </div>
+</div>
