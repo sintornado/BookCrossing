@@ -1,6 +1,7 @@
 export class Book {
-    id: number
-    title: string
-    author: string
-    year: number
+    Id: number
+    Title: string
+    Author: string
+    Year: string
+    Genre: string
 }

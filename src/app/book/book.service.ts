@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Book } from 'src/app/book/models/book';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/observable';
+
+const url = "http://localhost:9696/api/books";
 
 
 @Injectable({
@@ -7,35 +11,49 @@ import { Book } from 'src/app/book/models/book';
 })
 export class BookService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  sharedBooks: Book[] = [
-    {
-      id: 1,
-      title: 'First',
-      author: 'Ivanov',
-      year: 1985
-    },
-    {
-      id: 2,
-      title: 'Second',
-      author: 'Petrov',
-      year: 1990
-    },
-    {
-      id: 3,
-      title: 'Third',
-      author: 'Sidorov',
-      year: 2001
-    }
-  ]
+  getListOfBooks(): Observable<Book[]>{
 
-  getSharedBooks(){
-    return this.sharedBooks;
+    let q = this.http.get<Book[]>(url + '/all');
+    q.subscribe(() => {console.log("GET list of Books!!!");});
+    return q;
   }
 
-  saveShareBook(book: Book){
+  addBook(book: Book): Observable<Book> {
     console.log(book);
+    var t = this.http.post<Book>(url, book);
+    t.subscribe(function() { console.log("POST for books executed!");});
+    return t;
+  }
+
+  searchForBookByAuthor(author: any): Observable<any>{ 
+    console.log(author);
+    
+    var y = this.http.get<Book>(url + '/author/' + author);
+    y.subscribe(() => {console.log("Search by Author executed");});
+    console.log(y);
+    return y;
+  }
+
+  searchForBookByTitle(title: any): Observable<any>{ 
+    console.log(title);
+    
+    var y = this.http.get<Book>(url + '/title/' + title);
+    y.subscribe(() => {console.log("Search by Title executed");});
+    console.log(y);
+    return y;
+  }
+
+  requestedBook: Book[] = [];
+
+
+
+  searchText: string;
+  
+
+  saveRequestedBook(data: Book){
+    this.requestedBook.push(data);
   }
 
 }

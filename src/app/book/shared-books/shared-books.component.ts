@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../models/book';
 import { BookService } from 'src/app/book/book.service';
+import { Observable } from 'rxjs/internal/Observable';
 
 
 
@@ -17,12 +18,12 @@ import { BookService } from 'src/app/book/book.service';
 
 export class SharedBooksComponent implements OnInit {
 
-  constructor( private bookService: BookService) { }
+  constructor( private bs: BookService) { }
 
-  sharedBooks: Book[];
+  sharedBooks: Observable<Book[]>;
 
   ngOnInit() {
-    this.sharedBooks = this.bookService.getSharedBooks();
+    this.sharedBooks = this.bs.getListOfBooks();
   }
 
    

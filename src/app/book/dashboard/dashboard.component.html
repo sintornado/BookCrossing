@@ -2,9 +2,10 @@
   <!-- Sidebar -->
   <div class="sidebar-fixed position-fixed position">
     
-    <a class="logo-wrapper waves-effect">
+    <a class="logo-wrapper waves-effect ">
         <!-- <img src="../../../../assets/img/angular-mdb.png" class="img-fluid" alt=""> -->
-        <p>Hi , ...</p>
+        <p class="user">Hi , {{user.orangeFormFirstName}} {{user.orangeFormLastName}}</p>
+        <p class="user">{{user.orangeFormPass}}</p>
     </a>
 
     <div class="list-group list-group-flush">
@@ -15,8 +16,7 @@
             <i class="fa fa-exclamation mr-3"></i>Share</a>
         <a routerLink="nonExistingPath" routerLink="requested-books" routerLinkActive="active"   class="list-group-item list-group-item-action waves-effect">
             <i class="fa fa-exclamation mr-3"></i>Requested Book <br> (return book)</a>
-        <a routerLink="maps/map1" routerLink="returned-books" routerLinkActive="active"  class="list-group-item list-group-item-action waves-effect">
-            <i class="fa fa-exclamation mr-3"></i>Returned Book</a>
+        
         <a routerLink="nonExistingPath" routerLink="shared-books" routerLinkActive="active"   class="list-group-item list-group-item-action waves-effect">
             <i class="fa fa-exclamation mr-3"></i>Shared Book</a>
 

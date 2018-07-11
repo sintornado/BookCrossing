@@ -1,4 +1,4 @@
-<br>
+<!-- <br>
 <br>
 <br>
 
@@ -19,4 +19,28 @@
       <button type="button" class="btn btn-outline-danger btn-rounded" mdbWavesEffect>Cancel</button>
       <button type="button" class="btn btn-outline-success btn-rounded" mdbWavesEffect>Log In</button>
   </div>
+</div> -->
+
+<!-- Login form -->
+<div class="container jumbotron log ">
+  <form [formGroup]="loginForm ">
+      <p class="h5 text-center mb-4">Sign in</p>
+    
+      <div class="md-form">
+        <i class="fa fa-envelope prefix grey-text"></i>
+        <input type="text" formControlName="defaultFormEmail" id="defaultForm-email" class="form-control" mdbInputDirective>
+        <label for="defaultForm-email">Your email</label>
+      </div>
+    
+      <div class="md-form">
+        <i class="fa fa-lock prefix grey-text"></i>
+        <input type="password" formControlName="defaultFormPass" id="defaultForm-pass" class="form-control" mdbInputDirective>
+        <label for="defaultForm-pass">Your password</label>
+      </div>
+    
+      <div class="text-center">
+        <input type="submit" class="btn btn-default waves-light" mdbWavesEffect value="Login">
+      </div>
+    </form>
 </div>
+  <!-- Login form -->

@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// import { UserService } from 'src/app/book/user.service';
-// import { Observable } from 'rxjs/internal/Observable';
-// import { User } from '../models/user';
-// import { Router } from '@angular/router/src/router';
-// import { ActivatedRoute } from '@angular/router/src/router_state';
-// import { SearchComponent } from '../../components/search/search.component';
+import { UserService } from 'src/app/book/user.service';
+import { Observable } from 'rxjs/internal/Observable';
+import { User } from '../models/user';
+
  
 @Component({
   selector: 'app-dashboard',
@@ -12,24 +10,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  // user: Observable<User>
-  // let qwe = '';
-  
+  user: any = ''; 
 
-  constructor(
-    // private  userService: UserService
-  ) {  
-
-  }
+  constructor( private  us: UserService) {}
 
   ngOnInit() {
-    // this.user = 
-    // this.userService.get(1).subscribe((r)=> console.log(r));
-    // debugger;
-    // console.log(this.user);
-    //  let qwe = this.user.name;
+    this.user = this.us.userForDashboard;
+    console.log(this.user)
   }
-
-  
 
 }

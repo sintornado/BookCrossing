@@ -1,12 +1,58 @@
 <section class="main-block">
   <div class="row flex-center row-md-7 ">
-    <div class="col-md-6 text-center jumbotron jumb">
+    <div class="col-md-6 text-center jumbotron" [ngClass]="!show ? 'jumb2 animated fadeInDown' : 'jumb'" >
+        
         <div class="md-form input-group col-md-12">
-            <input type="search" class="form-control" placeholder="Search for...">
+            <input [(ngModel)]="searchInput" type="search" class="form-control" placeholder="Search for...">
+            <div>
+                <p>Search by</p>
+                  <form #f="ngForm">
+                      <input type="radio" value="Author" name="book" [(ngModel)]="searchWay"> Author
+                      <input type="radio" value="Title" name="book" [(ngModel)]="searchWay"> Title
+                    </form>
+                    
+              </div>
             <div class="input-group-btn">
-                <button class="btn btn-primary btn-md waves-light" type="button" mdbWavesEffect>Go!</button>
+                <button class="btn btn-primary btn-md waves-light" type="button"
+                        (click)="onClickSearchByAuthor(searchInput)"
+                        (click)="show = !show"
+                  mdbWavesEffect>Search!</button>
             </div>
+        </div>
+        <div *ngIf="!show"  class="jumbotron jumbotron-fluid rounded requested-block animated bounceInUp">
+          <div class="container ">
+            <div>
+                <h3 class="lead">Search books:</h3>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="thead-light">
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Year</th>
+                            <th scope="col">Genre</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                           <tr *ngFor="let book of searchResult">
+                            <th scope="row">{{book.Id}}</th>
+                            <td>{{book.Title}}</td>
+                            <td>{{book.Author}}</td>
+                            <td>{{book.Year}}</td>
+                            <td>{{book.Genre}}</td>
+                            <td><button type="button" class="btn btn-outline-warning btn-rounded"  mdbWavesEffect >Return</button></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!-- <button type="button" class="btn btn-outline-danger" routerLink="../share"  mdbWavesEffect>Share Book</button> -->
+                </div>
+              </div>
           </div>
+      </div>
     </div>
+    
   </div>  
+  
 </section>

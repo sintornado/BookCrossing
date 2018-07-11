@@ -6,7 +6,7 @@ import { RequestedBooksComponent } from "src/app/book/requested-books/requested-
 import { ShareComponent } from "src/app/book/share/share.component";
 import { SharedBooksComponent } from "src/app/book/shared-books/shared-books.component";
 import { ReturnComponent } from "src/app/book/return/return.component";
-import { ReturnedBooksComponent } from "src/app/book/returned-books/returned-books.component";
+
 
 const bookRoutes: Routes = [
     {path: '', component: DashboardComponent,
@@ -15,8 +15,8 @@ const bookRoutes: Routes = [
             {path: 'requested-books', component: RequestedBooksComponent },
             {path: 'share', component: ShareComponent },
             {path: 'shared-books', component: SharedBooksComponent },
-            {path: 'return', component: ReturnComponent },
-            {path: 'returned-books', component: ReturnedBooksComponent}
+            {path: 'return', component: ReturnComponent }
+            
         ]
     }
 ];

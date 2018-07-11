@@ -1,8 +1,7 @@
 export class User {
     id: Number
-    name: string
-    surname: string
-    shared: string
-    requested: string
-    returned: string
+    FirstName: string
+    LastName: string
+    Email: string
+    PasswordHash: string
 }

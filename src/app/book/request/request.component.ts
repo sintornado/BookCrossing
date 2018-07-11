@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BookService } from 'src/app/book/book.service';
+import { Book } from 'src/app/book/models/book';
+import { Observable } from 'rxjs/internal/Observable';
 // MDB Angular Free
 // import { InputsModule, WavesModule  } from 'angular-bootstrap-md';
 // Forms Module
@@ -10,37 +13,51 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./request.component.scss']
 })
 export class RequestComponent implements OnInit {
+  searchInput: any;
+  searchResult: Observable<Book>
+  show: boolean = true
+  searchWay = 'Author'
 
-  constructor() { }
+  constructor( public bs: BookService) { }
+
+  onClickSearchByAuthor(searchInput: any){
+    console.log(searchInput);
+    if(this.searchWay === 'Author'){
+      this.bs.searchForBookByAuthor(searchInput).subscribe((t) => {this.searchResult = t});
+    }else if(this.searchWay === 'Title'){
+      this.bs.searchForBookByTitle(searchInput).subscribe((t) => {this.searchResult = t});
+    }
+    
+  }
 
   ngOnInit() {
   }
+
+}
  
-  searchText: string;
-  tableData = [
-    { id: '1', firstName: 'Mark', lastName: 'Otto', username: '@mdo' },
-    { id: '2', firstName: 'Jacob', lastName: 'Thornton', username: '@jcox' },
-    { id: '3', firstName: 'Larry', lastName: 'Last', username: '@larry' },
-    { id: '4', firstName: 'John', lastName: 'Doe', username: '@johny' },
-    { id: '5', firstName: 'Zigi', lastName: 'Kiwi', username: '@zk' },
-    { id: '6', firstName: 'Beatrice', lastName: 'Selphie', username: '@bsl' },
-  ];
+  // onClickRequest(data: Book){
+  //   this.bs.saveRequestedBook(data);
+  //   console.log(data);
+  // }
 
-  filterIt(arr: any, searchKey: any) {
-    return arr.filter((obj: any) => {
-      return Object.keys(obj).some((key) => {
-        return obj[key].includes(searchKey);
-      });
-    });
-  }
+  // filterIt(arr: any, searchKey: any) {
+  //   return arr.filter((obj: any) => {
+  //     return Object.keys(obj).some((key) => {
+  //       return obj[key].includes(searchKey);
+  //     });
+  //   });
+  // }
 
-  search() {
-    if (!this.searchText) {
-      return this.tableData;
-    }
-    if (this.searchText) {
-      return this.filterIt(this.tableData, this.searchText);
-    }
-  }
+  // search() {
+  //   if (!this.bs.searchText) {
+  //     console.log(this.bs.searchForBookByAuthor(this.bs.searchText));
+  //     return this.bs.searchForBookByAuthor(this.bs.searchText);
+  //   }
+  //   if (this.bs.searchText) {
+  //     console.log(this.bs.searchForBookByAuthor(this.bs.searchText));
+  //     return this.filterIt(this.bs.searchForBookByAuthor(this.bs.searchText), this.bs.searchText);
+      
+  //   }
+  // }
 
 }

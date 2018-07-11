@@ -11,35 +11,36 @@ import { Book } from 'src/app/book/models/book';
 })
 export class ShareComponent implements OnInit {
   contactForm: FormGroup;
-  book: Book;
+  book: Book = new Book();
 
-  constructor(private fb: FormBuilder, private bookService: BookService) {
+  constructor(public fb: FormBuilder, private bookService: BookService) {
       this.contactForm = fb.group({
           contactFormName: ['', Validators.required],
           contactFormAuthor: ['', [Validators.required]],
-          contactFormYear: ['', Validators.required]
+          contactFormYear: ['', Validators.required],
+          contactFormGenre: ['', Validators.required]
           
       });
   }
   ngOnInit() {
   
-    
   }
-
- 
 
   onClickSave(contactForm: FormGroup){
     let book = contactForm.value;
 
-    this.bookService.saveShareBook(this.shareBook(book));
-    console.log(this.contactForm.value);
+    this.bookService.addBook(this.shareBook(book));
+
+    // this.bookService.saveShareBook(this.shareBook(book));
+    // console.log(this.contactForm.value);
   }
   shareBook(share: any){
     let qwe = share;
-      this.book.id = Date.now();
-      this.book.title = qwe.contactFormName;
-      this.book.author = qwe.contactFormAuthor;
-      this.book.year = qwe.contactFormYear;
+      // this.book.Id = Date.now();
+      this.book.Title = qwe.contactFormName;
+      this.book.Author = qwe.contactFormAuthor;
+      this.book.Year = qwe.contactFormYear;
+      this.book.Genre = qwe.contactFormGenre;
       return this.book;
   }
 
